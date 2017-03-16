@@ -14,7 +14,7 @@ export class TracksDataProvider {
 
 	get() {
 		return Observable.create((observer) => {
-			this._socket.on('birds', (data) => {
+			this._socket.on('lines', (data) => {
 				data.forEach(
 					(acNotification) => {
 						let action;

@@ -17,6 +17,7 @@ app.use(express.static(__dirname));
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/app/index.html');
 });
+
 httpServer.listen(3000, function () {
   console.log('listening on *:3000');
 });
@@ -57,7 +58,7 @@ function sendPartsByParts(numberOfObjects) {
       let entityId = counter % numOfEntities;
   counter += numberOfObjects;
   let data = createCollection(entityId, numberOfObjects);
-  io.emit('birds', data);
+  io.emit('lines', data);
 }, interval);
 
   return id;
@@ -72,8 +73,7 @@ function createCollection(startId, numberOfObjects) {
       action: 'ADD_OR_UPDATE',
       entity: {
         id: i,
-        name: 'bird' + i,
-        image: "/assets/angry-bird-blue-icon.png",
+        name: 'line' + i,
         position: {
           lat: 60 * Math.random() * getSign,
           long: 100 * Math.random() * getSign
