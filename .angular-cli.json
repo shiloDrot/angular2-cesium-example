@@ -21,7 +21,7 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/cesium/Build/Cesium/Cesium.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
