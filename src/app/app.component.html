@@ -1,1 +1,8 @@
-<ac-map></ac-map>
+<ac-map>
+  <ac-map-layer-provider [provider]="arcGisMapServerProvider"
+                         [options]="{
+                                url : 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+                            }">
+  </ac-map-layer-provider>
+</ac-map>
+<settings></settings>

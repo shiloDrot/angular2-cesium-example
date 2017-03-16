@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularCesiumModule } from '../../node_modules/angular2-cesium';
 import { AppComponent } from './app.component';
+import { SettingsComponent } from  './components/settings-component/settings.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
