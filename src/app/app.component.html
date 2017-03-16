@@ -4,5 +4,6 @@
                                 url : 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
                             }">
   </ac-map-layer-provider>
+  <dynamic-ellipse-layer #layer></dynamic-ellipse-layer>
 </ac-map>
-<settings></settings>
+<settings (cleanMap)="layer.removeAll();" (showEvent)="layer.setShow($event);"></settings>
