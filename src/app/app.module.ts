@@ -8,6 +8,7 @@ import { SettingsComponent } from  './components/settings-component/settings.com
 import { DynamicPolylineLayerComponent } from  './components/dynamic-polyline-layer/dynamic-polyline-layer.component'
 
 import { TracksDataProvider } from  './services/dataProvider/tracksDataProvider.service'
+import { socketIoProviderService } from  './services/socket-io-provider-servise/socket-io-provider.service'
 
 
 
@@ -24,7 +25,7 @@ import { TracksDataProvider } from  './services/dataProvider/tracksDataProvider.
     HttpModule,
     AngularCesiumModule
   ],
-  providers: [TracksDataProvider],
+  providers: [TracksDataProvider, socketIoProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

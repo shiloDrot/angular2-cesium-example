@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActionType } from 'angular2-cesium';
 import { convertToCesiumObj } from '../dataCovertor/convertToCesiumObject';
+import { socketIoProviderService } from '../socket-io-provider-servise/socket-io-provider.service';
 
 @Injectable()
 export class TracksDataProvider {
 	private _socket;
 
-	constructor() {
-		this._socket = io.connect('http://localhost:3000');
+	constructor(socketIoProviderService: socketIoProviderService) {
+		this._socket = socketIoProviderService.get();
 	}
 
 	get() {
