@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AcNotification, AcLayerComponent } from '../../../../node_modules/angular2-cesium';
-import { TracksDataProvider } from '../../../utils/services/dataProvider/tracksDataProvider.service';
+import { AcNotification, AcLayerComponent } from 'angular2-cesium';
+import { TracksDataProvider } from '../../services/dataProvider/tracksDataProvider.service';
 
 @Component({
 	moduleId: module.id,
@@ -14,6 +14,7 @@ export class DynamicPolylineLayerComponent implements OnInit {
 	@ViewChild(AcLayerComponent) layer: AcLayerComponent;
 
 	polylines$: Observable<AcNotification>;
+	Cesium = Cesium;
 	show = true;
 
 	constructor(private tracksDataProvider: TracksDataProvider) {

@@ -32,7 +32,7 @@ export class SettingsComponent implements OnInit {
 					numOfObjectsInPart: this.numOfObjectsInPart
 				}).catch(this.handleError)
 				.subscribe(() => {
-					console.log('Error on post change to the server');
+					console.log('Success post change to the server');
 				});
 		});
 	}

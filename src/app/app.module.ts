@@ -5,11 +5,18 @@ import { HttpModule } from '@angular/http';
 import { AngularCesiumModule } from '../../node_modules/angular2-cesium';
 import { AppComponent } from './app.component';
 import { SettingsComponent } from  './components/settings-component/settings.component'
+import { DynamicPolylineLayerComponent } from  './components/dynamic-polyline-layer/dynamic-polyline-layer.component'
+
+import { TracksDataProvider } from  './services/dataProvider/tracksDataProvider.service'
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingsComponent
+    SettingsComponent,
+    DynamicPolylineLayerComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +24,8 @@ import { SettingsComponent } from  './components/settings-component/settings.com
     HttpModule,
     AngularCesiumModule
   ],
-  providers: [],
+  providers: [TracksDataProvider],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
