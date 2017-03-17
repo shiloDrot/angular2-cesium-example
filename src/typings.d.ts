@@ -5,5 +5,3 @@ declare var module: {
 declare var Cesium;
 declare var require;
 declare var io;
-
-

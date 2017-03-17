@@ -10,9 +10,6 @@ import { DynamicPolylineLayerComponent } from  './components/dynamic-polyline-la
 import { TracksDataProvider } from  './services/dataProvider/tracksDataProvider.service'
 import { WebSocketSupplier } from  './utils/websocket-supplier/websocket-supplier'
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
