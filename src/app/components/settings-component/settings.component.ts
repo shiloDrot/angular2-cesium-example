@@ -12,9 +12,9 @@ export class SettingsComponent implements OnInit {
 	@Output() cleanMap = new EventEmitter();
 	@Output() showEvent = new EventEmitter();
 
-	private numOfEntities = 500;
+	private numOfEntities = 30;
 	private interval = 500;
-	private numOfObjectsInPart = 20;
+	private numOfEntitiesInOneSocket = 15;
 	private isShow = true;
 
 	constructor(private http:Http) {
@@ -23,13 +23,13 @@ export class SettingsComponent implements OnInit {
 	ngOnInit() {
 		this.getInterval().subscribe((data) => {
 			this.numOfEntities = data.numOfEntities;
-			this.numOfObjectsInPart = data.numOfObjectsInPart;
+			this.numOfEntitiesInOneSocket = data.numOfEntitiesInOneSocket;
 			this.interval = data.interval;
 			this.http.post('http://localhost:3000/change',
 				{
 					interval: this.interval,
 					numOfEntities: this.numOfEntities,
-					numOfObjectsInPart: this.numOfObjectsInPart
+          numOfEntitiesInOneSocket: this.numOfEntitiesInOneSocket
 				}).catch(this.handleError)
 				.subscribe(() => {
 					console.log('Success post change to the server');
@@ -50,7 +50,7 @@ export class SettingsComponent implements OnInit {
 			{
 				interval: this.interval,
 				numOfEntities: this.numOfEntities,
-				numOfObjectsInPart: this.numOfObjectsInPart
+        numOfEntitiesInOneSocket: this.numOfEntitiesInOneSocket
 			}).catch(this.handleError)
 			.subscribe(() => {
 				this.cleanMap.emit();

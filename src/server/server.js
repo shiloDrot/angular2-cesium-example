@@ -25,19 +25,19 @@ httpServer.listen(3000, function () {
 let numOfEntities = 30;
 let interval = 500;
 let intervalId;
-let numOfObjectsInPart = 20;
+let numOfEntitiesInOneSocket = 15;
 let socket;
 
 io.on('connection', function (connectionSocket) {
   socket = connectionSocket;
-  intervalId = sendPartsByParts(numOfObjectsInPart);
+  intervalId = sendEntities();
 });
 
 app.get('/data', function (req, res) {
   res.send({
     numOfEntities: numOfEntities,
     interval: interval,
-    numOfObjectsInPart: numOfObjectsInPart
+    numOfEntitiesInOneSocket: numOfEntitiesInOneSocket
   });
 });
 
@@ -46,27 +46,27 @@ app.post('/change', function (req, res, next) {
 
   numOfEntities = req.body.numOfEntities;
   interval = req.body.interval;
-  numOfObjectsInPart = req.body.numOfObjectsInPart;
-  intervalId = sendPartsByParts(numOfObjectsInPart);
+  numOfEntitiesInOneSocket = req.body.numOfEntitiesInOneSocket;
+  intervalId = sendEntities();
   res.send('changed successfully');
 });
 
-function sendPartsByParts(numberOfObjects) {
+function sendEntities() {
   let counter = 0;
   clearInterval(intervalId);
-  const id = setInterval(() => {
-      let entityId = counter % numOfEntities;
-  counter += numberOfObjects;
-  let data = createCollection(entityId, numberOfObjects);
-  io.emit('lines', data);
-}, interval);
+  const newIntervalId = setInterval(() => {
+    let startId = counter % numOfEntities;
+    counter += numOfEntitiesInOneSocket;
+    let data = createCollection(startId);
+    io.emit('lines', data);
+  }, interval);
 
-  return id;
+  return newIntervalId;
 }
 
-function createCollection(startId, numberOfObjects) {
+function createCollection(startId) {
   let data = [];
-  for (let i = startId; i < numOfEntities && i < startId + numberOfObjects; i++) {
+  for (let i = startId; i < numOfEntities && i < startId + numOfEntitiesInOneSocket; i++) {
     let getSign = Math.random() > 0.5 ? 1 : -1;
     data.push({
       id: i,
