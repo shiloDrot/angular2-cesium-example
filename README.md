@@ -23,7 +23,7 @@ npm start
 ## Guide
 If you want to use [Angular2-Cesium](https://www.npmjs.com/package/angular2-cesium) on working Angular2 project use the following instruction:
 
-(Note: it must be an Angular CLI generated project, otherwise their can be some bugs at this point)
+(Note: it must be an Angular CLI generated project, otherwise it might not work at this point - version 0.0.2)
 
 + install `angular2-cesium` via:
   ```
