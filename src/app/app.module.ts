@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { SettingsComponent } from  './components/settings-component/settings.component'
 import { DynamicPolylineLayerComponent } from  './components/dynamic-polyline-layer/dynamic-polyline-layer.component'
 
-import { TracksDataProvider } from  './services/dataProvider/tracksDataProvider.service'
-import { WebSocketSupplier } from  './utils/websocket-supplier/websocket-supplier'
+import { TracksDataProvider } from  './services/data-provider/tracksDataProvider.service'
+import { WebSocketSupplierService } from  './services/websocket-supplier/websocket-supplier.service'
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { WebSocketSupplier } from  './utils/websocket-supplier/websocket-supplie
     HttpModule,
     AngularCesiumModule
   ],
-  providers: [TracksDataProvider, WebSocketSupplier],
+  providers: [TracksDataProvider, WebSocketSupplierService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
