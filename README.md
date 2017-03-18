@@ -35,6 +35,18 @@ to `scripts` in `.angular-cli.json` file.
 
 + Add `declare var Cesium;` to `typing.d.ts` file
 
+### Usage
+
++ Once installed you need to import our main module.
+  ```
+  import { AngularCesiumModule } from 'angular-cesium/angular-cesium.module';
+  ```
+  
++ In your HTML file use `ac-map` tag to show the map:
+  ```
+  <ac-map></ac-map>
+  ```
+  
 + Add to `style.css`:
   ```
   @import url(/node_modules/cesium/Build/Cesium/Widgets/widgets.css);
@@ -46,12 +58,4 @@ to `scripts` in `.angular-cli.json` file.
     overflow: hidden;
   }
   ```
-### Usage
-+ Once installed you need to import our main module.
-  ```
-  import { AngularCesiumModule } from 'angular-cesium/angular-cesium.module';
-  ```
-+ In your HTML file use `ac-map` tag to show the map:
-  ```
-  <ac-map></ac-map>
-  ```
+  
