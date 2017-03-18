@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<ac-map>
+  <ac-map-layer-provider [provider]="arcGisMapServerProvider"
+                         [options]="{
+                                url : 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+                            }">
+  </ac-map-layer-provider>
+ <dynamic-polyline-layer #layer></dynamic-polyline-layer>
+</ac-map>
+<settings (cleanMap)="layer.removeAll();" (showEvent)="layer.setShow($event);"></settings>
