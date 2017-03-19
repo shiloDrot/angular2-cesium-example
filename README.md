@@ -5,19 +5,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Getting started
 
 + If you didn't installed Angular CLI yet:
-```
-npm install -g @angular/cli
-```
+  ```
+  $ npm install -g @angular/cli
+  ```
 
 + Write the next commands via the command line:
+  ```
+  $ git clone https://github.com/shiloDrot/angular2-cesium-example.git
+  $ cd angular2-cesium-example
+  $ npm install
+  $ npm run server
+  $ npm start
+  ```
 
-```
-git clone https://github.com/shiloDrot/angular2-cesium-example.git
-cd angular2-cesium-example
-npm install
-npm run server
-npm start
-```
 + Navigate to `http://localhost:4200/`.
 
 ## Guide
@@ -25,11 +25,17 @@ If you want to use [Angular2-Cesium](https://www.npmjs.com/package/angular2-cesi
 
 (Note: it must be an Angular CLI generated project, otherwise it might not work at this point - version 0.0.2)
 
-+ install `angular2-cesium` via:
++ install `angular2-cesium` & `cesium` via:
   ```
-  npm install --save angular2-cesium
-  npm install --save cesium
+  $ npm install --save angular2-cesium
+  $ npm install --save cesium
   ```
+
++ Import our main module:
+  ```
+  import { AngularCesiumModule } from 'angular-cesium/angular-cesium.module';
+  ```
+  
 + Add `"../node_modules/cesium/Build/Cesium/Cesium.js"`
 to `scripts` in `.angular-cli.json` file.
 
@@ -37,11 +43,6 @@ to `scripts` in `.angular-cli.json` file.
 
 ### Usage
 
-+ Once installed you need to import our main module.
-  ```
-  import { AngularCesiumModule } from 'angular-cesium/angular-cesium.module';
-  ```
-  
 + In your HTML file use `ac-map` tag to show the map:
   ```
   <ac-map></ac-map>
